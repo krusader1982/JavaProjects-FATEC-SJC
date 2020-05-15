@@ -1,0 +1,13 @@
+package br.com.utilities;
+
+public class Authentication {
+	public String user;
+	public long password;
+	
+	public Authentication(String user, long password) {
+		super();
+		this.user = user;
+		this.password = password;
+	}
+	
+}
