@@ -1,0 +1,61 @@
+package br.com.cash;
+
+public class Output {
+	public double eletricity;
+	public double gas;
+	public double food;
+	public double fuel;
+	public double others;
+	
+	public Output(double eletricity, double gas, double food, double fuel, double others) {
+		super();
+		this.eletricity = eletricity;
+		this.gas = gas;
+		this.food = food;
+		this.fuel = fuel;
+		this.others = others;
+	}
+
+	public double getEletricity() {
+		return eletricity;
+	}
+
+	public void setEletricity(double eletricity) {
+		this.eletricity = eletricity;
+	}
+
+	public double getGas() {
+		return gas;
+	}
+
+	public void setGas(double gas) {
+		this.gas = gas;
+	}
+
+	public double getFood() {
+		return food;
+	}
+
+	public void setFood(double food) {
+		this.food = food;
+	}
+
+	public double getFuel() {
+		return fuel;
+	}
+
+	public void setFuel(double fuel) {
+		this.fuel = fuel;
+	}
+
+	public double getOthers() {
+		return others;
+	}
+
+	public void setOthers(double others) {
+		this.others = others;
+	}
+	
+	
+	
+}

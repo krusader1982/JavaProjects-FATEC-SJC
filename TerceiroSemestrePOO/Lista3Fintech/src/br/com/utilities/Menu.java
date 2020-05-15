@@ -10,8 +10,7 @@ public class Menu {
 	
 	public void printAuthenticatedMenu() {
 		System.out.println("#### Menu ####");
-		System.out.println("1 - Cadastrar entradas do caixa");
-		System.out.println("2 - Cadastrar saídas do caixa");
+		System.out.println("1 - Cadastrar entradas e saídas do caixa");
 		System.out.println("2 - Gerar relatório");
 		System.out.println("0 - Sair");
 	}

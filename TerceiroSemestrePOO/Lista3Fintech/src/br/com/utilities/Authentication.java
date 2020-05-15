@@ -1,7 +1,5 @@
 package br.com.utilities;
 
-import br.com.user.User;
-
 public class Authentication {
 	public String username;
 	public String password;

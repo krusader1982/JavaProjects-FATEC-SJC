@@ -10,6 +10,7 @@ public class User extends IdImplementation {
 	private Address address;
 	
 	public User(Authentication auth, String name, String phone, Address address) {
+		super();
 		this.auth = auth;
 		this.name = name;
 		this.phone = phone;

@@ -1,0 +1,40 @@
+package br.com.cash;
+
+public class Input {
+	public double salary;
+	public double salesRevenue;
+	public double investiment;
+	
+	public Input(double investiment) {
+		this.investiment = investiment;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public double getSalesRevenue() {
+		return salesRevenue;
+	}
+
+	public void setSalesRevenue(double salesRevenue) {
+		this.salesRevenue = salesRevenue;
+	}
+
+	public double getInvestiment() {
+		return investiment;
+	}
+
+	public void setInvestiment(double investiment) {
+		this.investiment = investiment;
+	}
+	
+	
+	
+	
+
+}

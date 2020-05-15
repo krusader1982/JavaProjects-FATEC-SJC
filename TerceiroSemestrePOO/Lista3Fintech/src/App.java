@@ -8,7 +8,6 @@ public class App {
 
 	public static void main(String[] args) {
 		ArrayList<User> users = new ArrayList<User>();
-		ArrayList<CashFlow> cashFlows = new ArrayList<CashFlow>();
 
 		AsciiArt.printAsciiArt("FINTECH");
 		Menu menu = new Menu();
@@ -24,18 +23,18 @@ public class App {
 				User newUser = registerUser();
 				users.add(newUser);
 				break;
-				
+
 			case 2:
-				Authentication login  = loginUser();
-				for (User user: users) {
+				Authentication login = loginUser();
+				for (User user : users) {
 					boolean isAuthenticated = user.getAuth().compareTo(login);
 					if (isAuthenticated) {
-						
+						openAuthenticatedMenu(user);
 					}
 				}
 
 				break;
-				
+
 			default:
 				menu.printMainMenu();
 				break;
@@ -100,14 +99,146 @@ public class App {
 		ctl = new Control();
 		System.out.println("Digite seu usuário: ");
 		String registeredUsername = ctl.text();
-		
+
 		ctl = new Control();
 		System.out.println("Digite sua senha: ");
 		String registeredPassword = ctl.text();
-		
-		Authentication authLogin = new Authentication(registeredUsername, registeredPassword); 
-		
+
+		Authentication authLogin = new Authentication(registeredUsername, registeredPassword);
+
 		return authLogin;
 	}
 
+	public static void openAuthenticatedMenu(User user) {
+		Menu menu = new Menu();
+		int op = 1000;
+		User storedUser = user;
+
+		ArrayList<CashFlow> cashFlows = new ArrayList<CashFlow>();
+
+		while (op != 0) {
+			menu.printAuthenticatedMenu();
+			Control ctl = new Control();
+			op = ctl.option();
+
+			switch (op) {
+			case 1:
+				Control ctl1 = new Control();
+				CashFlow newCashFlow = new CashFlow(storedUser);
+				ctl1 = new Control();
+				System.out.println("Cadastrar entrada (1) ou cadastrar saída (2): ");
+				int option = ctl1.number();
+
+				if (option == 1) {
+					Input newInput = createInput();
+					newCashFlow.setInput(newInput);
+					newCashFlow.setOutput(new Output(0, 0, 0, 0, 0));
+				} else {
+					Output newOutput = createOutput();
+					newCashFlow.setOutput(newOutput);
+					newCashFlow.setInput(new Input(0));
+				}
+
+				cashFlows.add(newCashFlow);
+				break;
+
+			case 2:
+				int index = 0;
+				System.out.println("                       Fluxo de Caixa                         \n");
+				for (CashFlow cashFlow : cashFlows) {
+					index++;
+					
+					String createdByInput = cashFlow.getCreatedBy().getName();
+					String createdByOutput = cashFlow.getCreatedBy().getName();
+					
+					int totalInput = cashFlow.getInput().sumParams();
+					int totalOutput = cashFlow.getOutput().sumParams();
+					
+					System.out.printf("                          %d - Fluxo                           \n", index);
+					System.out.println("--------------------------------------------------------------\n");
+					if (totalInput != 0) {
+						System.out.printf("Criador por: %s | Valor total entrada: R$ %d\n", createdByInput, totalInput);
+					}
+					if (totalOutput != 0) {
+						System.out.printf("Criador por: %s | Valor total saída: R$ %d\n", createdByOutput, totalOutput);
+					}
+					System.out.println("--------------------------------------------------------------\n");
+				}
+				break;
+
+			default:
+				menu.printAuthenticatedMenu();
+				break;
+			}
+		}
+	}
+
+	public static Input createInput() {
+		Control ctl = new Control();
+
+		ctl = new Control();
+		System.out.println("Pessoa física (1) ou jurídica (2): ");
+		int value = ctl.number();
+
+		System.out.println("Entre com as seguintes informações");
+
+		int salary = 0;
+		int salesRevenue = 0;
+
+		if (value == 1) {
+			ctl = new Control();
+			System.out.println("Salário (somente valor): ");
+			salary = ctl.number();
+
+		} else {
+			ctl = new Control();
+			System.out.println("Receita de vendas (somente valor): ");
+			salesRevenue = ctl.number();
+		}
+
+		ctl = new Control();
+		System.out.println("Investimentos (somente valor): ");
+		int investiment = ctl.number();
+
+		Input input = new Input(investiment);
+		if (salary > 0) {
+			input.setSalary(salary);
+		}
+
+		if (salesRevenue > 0) {
+			input.setSalesRevenue(salesRevenue);
+		}
+
+		return input;
+	}
+
+	public static Output createOutput() {
+		Control ctl = new Control();
+
+		System.out.println("Entre com as seguintes informações");
+
+		ctl = new Control();
+		System.out.println("Energia elétrica (somente valor): ");
+		int eletricity = ctl.number();
+
+		ctl = new Control();
+		System.out.println("Gás (somente valor): ");
+		int gas = ctl.number();
+
+		ctl = new Control();
+		System.out.println("Comida (somente valor): ");
+		int food = ctl.number();
+
+		ctl = new Control();
+		System.out.println("Combustível (somente valor): ");
+		int fuel = ctl.number();
+
+		ctl = new Control();
+		System.out.println("Outros gastos (somente valor): ");
+		int others = ctl.number();
+
+		Output output = new Output(eletricity, gas, food, fuel, others);
+
+		return output;
+	}
 }

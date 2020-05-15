@@ -1,0 +1,45 @@
+package br.com.cash;
+
+import java.util.ArrayList;
+
+import br.com.user.User;
+
+import java.util.Date; 
+
+public class CashFlow {
+	ArrayList<Input> inputs = new ArrayList<Input>();
+	ArrayList<Output> outputs = new ArrayList<Output>();
+	
+	private User createdBy;
+	private Date createdAt;
+	
+	public CashFlow(User createdBy) {
+		this.createdBy = createdBy;
+		this.createdAt = new Date();
+	}
+
+	public ArrayList<Input> getInputs() {
+		return inputs;
+	}
+
+	public void addInput(Input input) {
+		this.inputs.add(input);
+	}
+
+	public ArrayList<Output> getOutputs() {
+		return outputs;
+	}
+	
+	public void addOutput(Output output) {
+		this.outputs.add(output);
+	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+	
+}

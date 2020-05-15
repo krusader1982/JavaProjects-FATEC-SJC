@@ -1,0 +1,18 @@
+package br.com.utilities;
+
+public class Menu {
+	public void printMainMenu() {
+		System.out.println("#### Menu ####");
+		System.out.println("1 - Quero me cadastrar!");
+		System.out.println("2 - Logar no sistema");
+		System.out.println("0 - Sair");
+	}
+	
+	public void printAuthenticatedMenu() {
+		System.out.println("#### Menu ####");
+		System.out.println("1 - Cadastrar entradas do caixa");
+		System.out.println("2 - Cadastrar saídas do caixa");
+		System.out.println("3 - Gerar relatório");
+		System.out.println("0 - Sair");
+	}
+}

@@ -2,29 +2,51 @@ package br.com.cash;
 
 import java.util.ArrayList;
 
+import br.com.user.User;
+
+import java.util.Date; 
+
 public class CashFlow {
-	ArrayList<Input> inputs = new ArrayList<Input>();
-	ArrayList<Output> outputs = new ArrayList<Output>();
+	public Input input;
+	public Output output;
+	private User createdBy;
+	private Date createdAt;
 	
-	public CashFlow(ArrayList<Input> inputs, ArrayList<Output> outputs) {
-		this.inputs = inputs;
-		this.outputs = outputs;
+	public CashFlow(User createdBy) {
+		this.createdBy = createdBy;
+		this.createdAt = new Date();
 	}
 
-	public ArrayList<Input> getInputs() {
-		return inputs;
+	public Input getInput() {
+		return input;
 	}
 
-	public void setInputs(ArrayList<Input> inputs) {
-		this.inputs = inputs;
+	public void setInput(Input input) {
+		this.input = input;
 	}
 
-	public ArrayList<Output> getOutputs() {
-		return outputs;
+	public Output getOutput() {
+		return output;
 	}
 
-	public void setOutputs(ArrayList<Output> outputs) {
-		this.outputs = outputs;
+	public void setOutput(Output output) {
+		this.output = output;
+	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	
 }

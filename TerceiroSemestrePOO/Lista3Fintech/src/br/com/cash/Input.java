@@ -1,36 +1,40 @@
 package br.com.cash;
 
 public class Input {
-	public double salary;
-	public double salesRevenue;
-	public double investiment;
+	public int salary = 0;
+	public int salesRevenue = 0;
+	public int investiment = 0;
 	
-	public Input(double investiment) {
+	public Input(int investiment) {
 		this.investiment = investiment;
 	}
 
-	public double getSalary() {
+	public int getSalary() {
 		return salary;
 	}
 
-	public void setSalary(double salary) {
+	public void setSalary(int salary) {
 		this.salary = salary;
 	}
 
-	public double getSalesRevenue() {
+	public int getSalesRevenue() {
 		return salesRevenue;
 	}
 
-	public void setSalesRevenue(double salesRevenue) {
+	public void setSalesRevenue(int salesRevenue) {
 		this.salesRevenue = salesRevenue;
 	}
 
-	public double getInvestiment() {
+	public int getInvestiment() {
 		return investiment;
 	}
 
-	public void setInvestiment(double investiment) {
+	public void setInvestiment(int investiment) {
 		this.investiment = investiment;
+	}
+	
+	public int sumParams() {
+		return this.salary + this.salesRevenue + this.investiment;
 	}
 	
 	
