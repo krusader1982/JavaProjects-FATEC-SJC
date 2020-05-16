@@ -147,13 +147,13 @@ public class App {
 				System.out.println("                       Fluxo de Caixa                         \n");
 				for (CashFlow cashFlow : cashFlows) {
 					index++;
-
+					
 					String createdByInput = cashFlow.getCreatedBy().getName();
 					String createdByOutput = cashFlow.getCreatedBy().getName();
-
+					
 					int totalInput = cashFlow.getInput().sumParams();
 					int totalOutput = cashFlow.getOutput().sumParams();
-
+					
 					System.out.printf("                          %d - Fluxo                           \n", index);
 					System.out.println("--------------------------------------------------------------\n");
 					if (totalInput != 0) {

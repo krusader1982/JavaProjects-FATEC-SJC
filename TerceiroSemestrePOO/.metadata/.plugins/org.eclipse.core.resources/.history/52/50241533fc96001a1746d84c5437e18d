@@ -1,15 +1,17 @@
 package br.com.cash;
 
+import java.util.ArrayList;
+
 import br.com.user.User;
 
-import java.util.Date;
+import java.util.Date; 
 
 public class CashFlow {
 	public Input input;
 	public Output output;
 	private User createdBy;
 	private Date createdAt;
-
+	
 	public CashFlow(User createdBy) {
 		this.createdBy = createdBy;
 		this.createdAt = new Date();
@@ -46,5 +48,5 @@ public class CashFlow {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
+	
 }
