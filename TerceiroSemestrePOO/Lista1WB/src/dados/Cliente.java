@@ -1,6 +1,7 @@
 package dados;
 
-public class Cliente extends Id{
+public class Cliente {
+	public int id;
 	public int dia;
 	public int mes;
 	public int ano;
@@ -10,9 +11,8 @@ public class Cliente extends Id{
 	public String telefone;
 	public String servico;
 
-	public Cliente(int dia, int mes, int ano, int idade, String nome, String genero,
-			String telefone, String servico) {
-		super();
+	public Cliente(int id, int dia, int mes, int ano, int idade, String nome, String genero, String telefone, String servico) {
+		this.id = id;
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
@@ -21,6 +21,14 @@ public class Cliente extends Id{
 		this.genero = genero;
 		this.telefone = telefone;
 		this.servico = servico;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getDia() {
@@ -90,7 +98,7 @@ public class Cliente extends Id{
 	@Override
 	public String toString() {
 		String p = "\n";
-		p = p + "ID: " +  + "\n";
+		p = p + "ID: " + id + "\n";
 		p = p + "Nome: " + nome + "\n";
 		p = p + "Data de Nascimento: " + dia + "/" + mes + "/" + ano + "\n";
 		p = p + "Idade: " + idade + "\n";
